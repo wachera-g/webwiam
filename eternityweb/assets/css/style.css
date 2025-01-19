@@ -168,6 +168,41 @@ a:hover {
   height: auto;
 }
 
+.animated-arrow {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b8860b;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.animated-arrow:hover {
+  color: #daa520;
+}
+
+.animated-arrow .arrow-shape {
+  font-size: 2rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.animated-arrow:hover .arrow-shape {
+  transform: translateX(5px) rotate(-15deg);
+}
+
+.animated-arrow .arrow-text {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.animated-arrow:hover .arrow-text {
+  transform: translateX(-5px);
+}
+
 
 
 table {
