@@ -749,7 +749,7 @@ hr {
 
 .cs-accent_color,
 .cs-accent_color_hover:hover {
-  color: #FF4A17;
+  color: #DAB060;
 }
 
 .cs-white_bg {
@@ -766,7 +766,7 @@ hr {
 
 .cs-accent_bg,
 .cs-accent_bg_hover:hover {
-  background-color: #FF4A17;
+  background-color: #DAB060;
 }
 
 .cs-primary_bg,
@@ -1973,7 +1973,7 @@ label {
   width: 100%;
   right: -60px;
   bottom: -60px;
-  background-color: #FF4A17;
+  background-color: #C28E4D;
   border-radius: inherit;
 }
 .cs-image_layer.cs-style1.cs-size_md {
