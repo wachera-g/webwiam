@@ -147,6 +147,29 @@ a:hover {
   color: #FF4A17;
 }
 
+.vision-container {
+  text-align: center;
+  margin-top: -100px; /* Adjust this value to ensure the image does not overlap the header */
+}
+
+.vision-image {
+  max-width: -100%;
+  height: auto;
+}
+
+.back-arrow-button {
+  display: inline-block;
+  margin: 20px auto; /* Center the button and adjust the margin as needed */
+  text-align: center;
+}
+
+.back-arrow-button img {
+  width: 30px; /* Adjust the size of the arrow as needed */
+  height: auto;
+}
+
+
+
 table {
   width: 100%;
   margin-bottom: 25px;
