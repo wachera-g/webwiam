@@ -225,30 +225,25 @@
       </div>
       <div class="col-lg-6">
         <form id="cs-form" action="https://api.web3forms.com/submit" method="POST" class="row">
-          
-          <input type="hidden" name="access_key" value="6d7bc3fc-6190-43c5-8298-89ac5ef7494f">
+          <!-- Replace with your Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="184fe977-c7e4-4ea3-b059-4b6b52e75684">
+          <!-- Protect against bots -->
           <input type="checkbox" name="botcheck" style="display: none;">
-          <!-- Optional: Can be type="hidden" or type="text" for subject -->
-          <input type="hidden" name="subject" value="Submission from Laralink Template">
-
+          <!-- Subject of the email (optional) -->
+          <input type="hidden" name="subject" value="New Inquiry from Website">
+          <!-- Your recipient email -->
+          <input type="hidden" name="to_email" value="info@eternityin-amoment.org">
+          <!-- Sender name -->
+          <input type="hidden" name="from_name" value="Eternity in a Moment">
+          <!-- Form Fields -->
           <div class="col-sm-6">
             <label class="cs-primary_color">Full Name*</label>
-            <input type="text" class="cs-form_field" name="full-name" required>
+            <input type="text" class="cs-form_field" name="full_name" required>
             <div class="cs-height_20 cs-height_lg_20"></div>
           </div>
           <div class="col-sm-6">
             <label class="cs-primary_color">Email*</label>
-            <input type="text" class="cs-form_field" name="email" required>
-            <div class="cs-height_20 cs-height_lg_20"></div>
-          </div>
-          <div class="col-sm-6">
-            <label class="cs-primary_color">Project Type*</label>
-            <input type="text" class="cs-form_field" name="project" required>
-            <div class="cs-height_20 cs-height_lg_20"></div>
-          </div>
-          <div class="col-sm-6">
-            <label class="cs-primary_color">Mobile*</label>
-            <input type="text" class="cs-form_field" name="number" required>
+            <input type="email" class="cs-form_field" name="email" required>
             <div class="cs-height_20 cs-height_lg_20"></div>
           </div>
           <div class="col-lg-12">
@@ -266,6 +261,7 @@
             <div id="cs-result"></div>
           </div>
         </form>
+        
       </div>
     </div>
   </div>

@@ -749,17 +749,17 @@
   if ($.exists('#cs-form')) {
     const form = document.getElementById('cs-form');
     const result = document.getElementById('cs-result');
-
+  
     form.addEventListener('submit', function (e) {
-      const formData = new FormData(form);
       e.preventDefault();
+      const formData = new FormData(form);
       var object = {};
       formData.forEach((value, key) => {
         object[key] = value;
       });
       var json = JSON.stringify(object);
       result.innerHTML = 'Please wait...';
-
+  
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -768,20 +768,20 @@
         },
         body: json,
       })
-        .then(async response => {
-          let json = await response.json();
-          if (response.status == 200) {
+        .then(async (response) => {
+          const json = await response.json();
+          if (response.status === 200) {
             result.innerHTML = json.message;
           } else {
-            console.log(response);
-            result.innerHTML = json.message;
+            console.error(response);
+            result.innerHTML = 'An error occurred. Please try again.';
           }
         })
-        .catch(error => {
-          console.log(error);
-          result.innerHTML = 'Something went wrong!';
+        .catch((error) => {
+          console.error(error);
+          result.innerHTML = 'Something went wrong. Please try again later.';
         })
-        .then(function () {
+        .finally(() => {
           form.reset();
           setTimeout(() => {
             result.style.display = 'none';
