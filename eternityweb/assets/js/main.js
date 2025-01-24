@@ -749,46 +749,34 @@
   if ($.exists('#cs-form')) {
     const form = document.getElementById('cs-form');
     const result = document.getElementById('cs-result');
-  
+
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      var object = {};
-      formData.forEach((value, key) => {
-        object[key] = value;
-      });
-      var json = JSON.stringify(object);
-      result.innerHTML = 'Please wait...';
-  
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: json,
-      })
-        .then(async (response) => {
-          const json = await response.json();
-          if (response.status === 200) {
-            result.innerHTML = json.message;
-          } else {
-            console.error(response);
-            result.innerHTML = 'An error occurred. Please try again.';
-          }
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form); // Collect form data
+
+        result.innerHTML = 'Please wait...';
+
+        fetch('send_email.php', { // Update to point to your PHP script
+            method: 'POST',
+            body: formData, // Send form data as-is
         })
-        .catch((error) => {
-          console.error(error);
-          result.innerHTML = 'Something went wrong. Please try again later.';
-        })
-        .finally(() => {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = 'none';
-          }, 5000);
-        });
+            .then(async (response) => {
+                const text = await response.text(); // Get the PHP response
+                result.innerHTML = text; // Display the result
+            })
+            .catch((error) => {
+                console.error(error);
+                result.innerHTML = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                form.reset(); // Reset the form
+                setTimeout(() => {
+                    result.style.display = 'none';
+                }, 5000);
+            });
     });
-  }
+}
 
   /*--------------------------------------------------------------
     22. Cursor Animation
