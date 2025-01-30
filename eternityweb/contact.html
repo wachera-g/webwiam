@@ -17,6 +17,111 @@
   <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css">
   <link rel="stylesheet" href="assets/css/plugins/animate.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Animated Text Container */
+.cs-animated-text-container {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Animated Text */
+.cs-animated-text {
+  font-size: 1.9rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #b8860b, #ffffff);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientText 5s linear infinite;
+}
+
+.cs-animated-text a {
+  color: #b8860b;
+  text-decoration: none;
+}
+
+.cs-animated-text a:hover {
+  text-decoration: underline;
+}
+
+/* Gradient Text Animation */
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Stars Animation */
+.cs-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cs-star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+.cs-star:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.cs-star:nth-child(2) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.cs-star:nth-child(3) {
+  top: 50%;
+  left: 70%;
+  animation-delay: 0.5s;
+}
+
+.cs-star:nth-child(4) {
+  top: 70%;
+  left: 40%;
+  animation-delay: 1.5s;
+}
+
+.cs-star:nth-child(5) {
+  top: 90%;
+  left: 80%;
+  animation-delay: 0.75s;
+}
+
+/* Twinkle Animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  </style>
 </head>
 
 <body>
@@ -250,6 +355,21 @@
       </div>
     </div>
   </div>
+  <!-- Add this below the contact form -->
+<div class="cs-animated-text-container">
+  <div class="cs-animated-text">
+    <span><i>Having trouble with the form? 
+    <br>Email us directly at <a href="mailto:info@eternityin-amoment.org">info@eternityin-amoment.org</a></i></span>
+  </div>
+  <div class="cs-stars">
+    <div class="cs-star"></div>
+    <div class="cs-star"></div>
+    <div class="cs-star"></div>
+    <div class="cs-star"></div>
+    <div class="cs-star"></div>
+  </div>
+  <!--End Of Section text-->
+
   <div class="cs-height_150 cs-height_lg_80"></div>
   <div class="cs-google_map cs-bg" data-src="assets/img/map_img.jpeg">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.364476137353!2d36.799728945482826!3d-1.2681246795167642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173c0a1f9de7%3A0xad2c84df1f7f2ec8!2sWestlands%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1737120535368!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -388,5 +508,17 @@
   <script src="assets/js/plugins/wow.min.js"></script>
   <script src="assets/js/plugins/gsap.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    // Optional: Add more stars dynamically
+    const starsContainer = document.querySelector('.cs-stars');
+    for (let i = 0; i < 10; i++) {
+      const star = document.createElement('div');
+      star.classList.add('cs-star');
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
 </body>
 </html>
